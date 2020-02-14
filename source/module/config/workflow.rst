@@ -44,25 +44,16 @@ Step 2 - Upgrade OpenNebula
 
 Update your OpenNebula packages by following **Upgrading from OpenNebula X.Y** document from official `OpenNebula Documentation <https://docs.opennebula.org/>`__ for the version you are upgrading to.
 
-.. important::
-
-    It's necessary to upgrade your current OpenNebula directly to **5.10.2** or later, which supports the automatic configuration backups.
-
-Step 3 - Update Configurations
-------------------------------
-
-This action is usually mentioned in the **Upgrading from OpenNebula X.Y** as a manual step before upgrading the database. OneScape configuration module completely automates the step by running ``onecfg upgrade``. Follow :ref:`onecfg upgrade <cfg_upgrade>` documentation on how to upgrade and troubleshoot the configurations.
+Take into account that step 5, "Update Configuration Files" is automated with ``onecfg``, so no need for manual configuration files editing as indicated in the public documentation guide. OneScape configuration module completely automates the step by running ``onecfg upgrade``. Follow :ref:`onecfg upgrade <cfg_upgrade>` documentation on how to upgrade and troubleshoot the configurations.
 
 .. important::
 
-   Configuration upgrade must be done after each OpenNebula upgrade!
+   It's necessary to upgrade your current OpenNebula directly to **5.10.2** or later, which supports the automatic configuration backups. Also, configuration upgrade must be done after each OpenNebula upgrade!
 
-Step 4 - Finish Upgrade
------------------------
 
-Follow the rest steps from **Upgrading from OpenNebula X.Y** document. It might be necessary to upgrade database, or do some other OpenNebula version-specific steps.
+After ``onecfg upgrade`` follow the rest steps from **Upgrading from OpenNebula X.Y** document. It might be necessary to upgrade database, or do some other OpenNebula version-specific steps.
 
-Step 5 - Validation
+Step 3 - Validation
 -------------------
 
 When all steps are done, run the OpenNebula and check the working state.
