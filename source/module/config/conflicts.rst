@@ -37,6 +37,27 @@ The patch modes are specified using ``--patch-modes MODES`` parameter passed to 
 
 Modes (``MODES``) is a comma (``,``) separated list of selected patch modes (**skip**, **force**, **replace**).
 
+Default Patch Modes
+-------------------
+
+Each different type of file you can find :ref:`here <cfg_files>` has the following default patch mode:
+
++---------------+--------------------+
+| File Type     | Default Patch Mode |
++===============+====================+
+| Simple        | None               |
++---------------+--------------------+
+| Yaml          | None               |
++---------------+--------------------+
+| Yaml::Strict  | ``force``          |
++---------------+--------------------+
+| Augeas::Shell | None               |
++---------------+--------------------+
+| Augeas::ONE   | ``skip``           |
++---------------+--------------------+
+
+These default patching modes can be used in the upgrade process (``onecfg upgrade``) using the parameter ``--patch-safe``.
+
 Examples
 --------
 
