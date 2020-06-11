@@ -24,7 +24,7 @@ To add OneScape repository execute the following as root:
     # cat << EOT > /etc/yum.repos.d/onescape.repo
     [onescape]
     name=onescape
-    baseurl=https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.10/CentOS/7/\$basearch
+    baseurl=https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.12/CentOS/7/\$basearch
     enabled=1
     gpgkey=https://downloads.opennebula.io/repo/repo.key
     gpgcheck=1
@@ -38,7 +38,7 @@ To add OneScape repository execute the following as root:
     # cat << EOT > /etc/yum.repos.d/onescape.repo
     [onescape]
     name=onescape
-    baseurl=https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.10/CentOS/8/\$basearch
+    baseurl=https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.12/CentOS/8/\$basearch
     enabled=1
     gpgkey=https://downloads.opennebula.io/repo/repo.key
     gpgcheck=1
@@ -58,22 +58,28 @@ To add OneScape repository on Debian/Ubuntu execute as root:
 
 .. prompt:: bash # auto
 
-    # echo "deb https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.10/Debian/9 stable onescape" > /etc/apt/sources.list.d/onescape.list
+    # echo "deb https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.12/Debian/9 stable onescape" > /etc/apt/sources.list.d/onescape.list
 
 **Debian 10**
 
 .. prompt:: bash # auto
 
-    # echo "deb https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.10/Debian/10 stable onescape" > /etc/apt/sources.list.d/onescape.list
+    # echo "deb https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.12/Debian/10 stable onescape" > /etc/apt/sources.list.d/onescape.list
 
 **Ubuntu 16.04**
 
 .. prompt:: bash # auto
 
-    # echo "deb https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.10/Ubuntu/16.04 stable onescape" > /etc/apt/sources.list.d/onescape.list
+    # echo "deb https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.12/Ubuntu/16.04 stable onescape" > /etc/apt/sources.list.d/onescape.list
 
 **Ubuntu 18.04**
 
 .. prompt:: bash # auto
 
-    # echo "deb https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.10/Ubuntu/18.04 stable onescape" > /etc/apt/sources.list.d/onescape.list
+    # echo "deb https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.12/Ubuntu/18.04 stable onescape" > /etc/apt/sources.list.d/onescape.list
+
+**Ubuntu 20.04**
+
+.. prompt:: bash # auto
+
+    # echo "deb https://${AUTH}@enterprise.opennebula.io/repo/onescape/5.12/Ubuntu/20.04 stable onescape" > /etc/apt/sources.list.d/onescape.list
