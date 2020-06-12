@@ -18,7 +18,7 @@ This section describes the typical OpenNebula upgrade process incorporating the 
 
         # onecfg status
         --- Versions ------------------------------
-        OpenNebula:  5.10.1
+        OpenNebula:  5.12.0
         Config:      5.8.0
         ERROR: Configurations metadata are outdated.
 
@@ -35,11 +35,69 @@ Follow the :ref:`installation <install>` section to install or **update** the ex
 
         # onecfg status
         --- Versions ------------------------------
-        OpenNebula:  5.10.2
+        OpenNebula:  5.12.0
         Config:      5.8.0
-        ERROR: Unsupported OpenNebula version 5.10.2
+        ERROR: Unsupported OpenNebula version 5.12.0
 
-Step 2 - Upgrade OpenNebula
+Step 2 - Prepare OneScape
+--------------------------
+
+Before upgrading OpenNebula, you need to ensure that state of OneScape configuration module is clean without any pending migrations from past or outdated configurations. Run ``onecfg status`` to check the configuration state.
+
+Clean state might look like:
+
+    .. prompt:: bash # auto
+
+        # onecfg status
+        --- Versions ------------------------------
+        OpenNebula:  5.8.5
+        Config:      5.8.0
+
+        --- Available Configuration Updates -------
+        No updates available.
+
+Unknown Configuration Version Error
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you get error message about unknown configuration version, you don't need to do anything. Configuration version will be automatically initialized during OpenNebuyla upgrade. Version of current configuration will be based on old OpenNebula version.
+
+    .. prompt:: bash # auto
+
+        # onecfg status
+        --- Versions ------------------------------
+        OpenNebula:  5.8.5
+        Config:      unknown
+        ERROR: Unknown config version
+
+Configuration Metadata Outdated Error
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the configuration module complains about outdated metadata, you have missed to run configuration upgrade during some of OpenNebula upgrades in the past. Please note configuration must be upgraded or processed with even OpenNebula maintenance releases.
+
+Following invalid state:
+
+    .. prompt:: bash # auto
+
+        # onecfg status
+        --- Versions ------------------------------
+        OpenNebula:  5.8.5
+        Config:      5.8.0
+        ERROR: Configurations metadata are outdated.
+
+needs to be fixed by reinitialization of the configuration state. Any unprocessed upgrades will be lost and current state will be initialized based on your current OpenNebula version and configurations located in system directories.
+
+    .. prompt:: bash # auto
+
+        # onecfg init --force
+        # onecfg status
+        --- Versions ------------------------------
+        OpenNebula:  5.8.5
+        Config:      5.8.5
+
+        --- Available Configuration Updates -------
+        No updates available.
+
+Step 3 - Upgrade OpenNebula
 ---------------------------
 
 Update your OpenNebula packages by following **Upgrading from OpenNebula X.Y** document from official `OpenNebula Documentation <https://docs.opennebula.org/>`__ for the version you are upgrading to.
@@ -53,7 +111,7 @@ Take into account that step 5, "Update Configuration Files" is automated with ``
 
 After ``onecfg upgrade`` follow the rest steps from **Upgrading from OpenNebula X.Y** document. It might be necessary to upgrade database, or do some other OpenNebula version-specific steps.
 
-Step 3 - Validation
+Step 4 - Validation
 -------------------
 
 When all steps are done, run the OpenNebula and check the working state.
@@ -64,8 +122,8 @@ Check the configuration state via ``onecfg status``. There shouldn't be any erro
 
     # onecfg status
     --- Versions ------------------------------
-    OpenNebula:  5.10.2
-    Config:      5.10.0
+    OpenNebula:  5.12.0
+    Config:      5.12.0
 
     --- Available Configuration Updates -------
     No updates available.

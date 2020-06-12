@@ -1,8 +1,12 @@
 ---
 versions:
+- - '5.12'
+  - http://docs.opennebula.io/onescape/5.12
 - - '5.10'
   - http://docs.opennebula.io/onescape/5.10
 
 downloads:
+- - '5.12'
+  - 'http://docs.opennebula.io/onescape/pdf/onescape-5.12.pdf'
 - - '5.10'
   - 'http://docs.opennebula.io/onescape/pdf/onescape-5.10.pdf'
