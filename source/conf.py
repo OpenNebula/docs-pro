@@ -59,9 +59,9 @@ author = u'OpenNebula Systems'
 # built documents.
 #
 # The short X.Y version.
-version = u'5.12'
+version = u'5.13'
 # The full version, including alpha/beta/rc tags.
-release = u'5.12.0'
+release = u'5.13.80'
 
 site_conf = yaml.load(open('site_conf.yml').read())
 versions = site_conf['versions']
